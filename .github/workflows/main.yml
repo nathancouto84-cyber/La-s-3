@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Joguinho da Sorte ❤️</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe6f0, #fff0f5);
+      font-family: "Segoe UI", sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #d63384;
+      font-size: 36px;
+    }
+    button {
+      background: #ff4da6;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 20px;
+    }
+    button:hover {
+      background: #e60073;
+      transform: scale(1.05);
+    }
+    .conteudo {
+      margin-top: 40px;
+      font-size: 22px;
+      color: #333;
+      min-height: 60px;
+    }
+    .cora {
+      display: none;
+      margin-top: 50px;
+      font-size: 40px;
+      color: red;
+      animation: pulse 1s infinite alternate;
+    }
+    .nome {
+      font-size: 30px;
+      color: #d63384;
+      margin-top: 10px;
+    }
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Bem-vinda Laís ✨</h1>
+  <button onclick="startGame()" id="btnStart">Começar</button>
+
+  <div class="conteudo" id="conteudo"></div>
+  <button onclick="nextStep()" id="btnNext" style="display:none;">Próximo ➡️</button>
+
+  <div class="cora" id="cora">
+    ❤️<br>
+    <span class="nome">Laís 💖</span>
+  </div>
+
+  <script>
+    let index = 0;
+    const etapas = [
+      "Motivos para você me dar uma chance! 💕",
+      "✨ Eu sou muito educado",
+      "✨ Amoroso de verdade",
+      "✨ Esforçado e dedicado",
+      "✨ Sempre vou te apoiar",
+      "✨ Vou te fazer sorrir todos os dias"
+    ];
+
+    function startGame() {
+      document.getElementById("btnStart").style.display = "none";
+      document.getElementById("btnNext").style.display = "inline-block";
+      document.getElementById("conteudo").innerText = etapas[index];
+    }
+
+    function nextStep() {
+      index++;
+      if (index < etapas.length) {
+        document.getElementById("conteudo").innerText = etapas[index];
+      } else {
+        document.getElementById("conteudo").style.display = "none";
+        document.getElementById("btnNext").style.display = "none";
+        document.getElementById("cora").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
